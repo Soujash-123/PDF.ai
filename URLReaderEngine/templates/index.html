@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ranjana Enterprises</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: #BF272E;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .chat-container {
+            width: 400px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border: 2px solid #BF272E;
+            border-radius: 10px;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+        }
+        
+        .message label {
+            font-weight: bold;
+        }
+        
+        .message input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #BF272E;
+            color: #000000;
+            background-color: #FFFFFF;
+        }
+        
+        .btn-submit {
+            background-color: #BF272E;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        
+        .btn-back {
+            background-color: #BF272E;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-back" onclick="window.location.href='/'">Go Back</button>
+    <div class="header">
+        <h1>Ranjana Enterprises</h1>
+    </div>
+    <div class="chat-container">
+        <form action="/process" method="post">
+            <div class="message">
+                <label for="url">URL:</label><br>
+                <input type="text" id="url" name="url">
+            </div>
+            <div class="message">
+                <label for="prompt">Prompt:</label><br>
+                <input type="text" id="prompt" name="prompt">
+            </div>
+            <br>
+            <input class="btn-submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

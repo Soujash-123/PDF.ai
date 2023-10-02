@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChatGPT Interface - Result</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: Arial, sans-serif;
+        }
+        
+        .header {
+            background-color: #BF272E;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        
+        .chat-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 100px auto 0;
+            padding: 20px;
+            border: 2px solid #BF272E;
+            border-radius: 10px;
+        }
+        
+        .message {
+            margin-bottom: 10px;
+        }
+        
+        .message label {
+            font-weight: bold;
+        }
+        
+        .message p {
+            margin-top: 0;
+        }
+
+        .lines {
+            margin-top: 20px;
+        }
+
+        .line {
+            margin-bottom: 5px;
+        }
+
+        .line p {
+            display: inline;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .btn-back {
+            background-color: #BF272E;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        
+        .btn-top {
+            background-color: #BF272E;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn-back" onclick="window.location.href='/'">Go Back</button>
+    <div class="header">
+        <h1>ChatGPT Interface - Result</h1>
+    </div>
+    <div class="chat-container">
+        <div class="message">
+            <label>URL:</label><br>
+            <p>{{ url }}</p>
+        </div>
+        <div class="message">
+            <label>Prompt:</label><br>
+            <p>{{ prompt }}</p>
+        </div>
+        <div class="message">
+            <label>Generated Statement:</label><br>
+            <p>{{ generated_statement }}</p>
+        </div>
+        {% if lines %}
+            <div class="lines">
+                <h3>Lines from Articles:</h3>
+                {% for line in lines %}
+                    <div class="line">
+                        <p>Line {{ loop.index }}:</p>
+                        <p>{{ line }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <button class="btn-top" onclick="goToTop()">Go to Top</button>
+    
+    <script>
+        // Show/hide "Go to Top" button based on scroll position
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector('.btn-top').style.display = "block";
+            } else {
+                document.querySelector('.btn-top').style.display = "none";
+            }
+        }
+        
+        // Scroll to top of the page when "Go to Top" button is clicked
+        function goToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

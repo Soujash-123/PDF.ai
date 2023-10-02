@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Physics Document Reader</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        h1 {
+            color: #FF5733;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            color: #FF5733;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #FF5733;
+            border-radius: 5px;
+            color: #FFFFFF;
+            background-color: #242424;
+            outline: none;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        select {
+            width: 70%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #FF5733;
+            border-radius: 5px;
+            color: #FFFFFF;
+            background-color: #242424;
+            outline: none;
+        }
+
+        /* Additional style for the list of uploaded PDFs */
+        .uploaded-pdfs {
+            margin-top: 30px;
+        }
+
+        .uploaded-pdfs li {
+            color: #FF5733;
+            margin-bottom: 10px;
+        }
+
+        .uploaded-pdfs li a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+
+        .uploaded-pdfs li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Physics Document Reader</h1>
+        <form method="post" action="/" enctype="multipart/form-data">
+            <label for="subject">Select Subject:</label>
+            <select id="subject" name="subject" required>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Maths">Maths</option>
+            </select>
+            <br>
+            <label for="class">Select Class:</label>
+            <select id="class" name="class" required>
+                <option value="Class11">Class 11</option>
+                <option value="Class12">Class 12</option>
+                <!-- Add more class options if needed -->
+            </select>
+            <br>
+            <label for="prompt">Enter your question:</label>
+            <input type="text" id="prompt" name="prompt" required>
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        <!-- Keep the Upload PDF button here -->
+        <button type="button" onclick="window.location.href='/upload_pdf_page'">Upload PDF</button>
+
+        <!-- Display the list of uploaded PDFs -->
+        <h2>Uploaded PDFs:</h2>
+        <ul class="uploaded-pdfs">
+            {% for pdf in uploaded_pdfs %}
+                <li><a href="{{ url_for('download', filename=pdf) }}">{{ pdf }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload PDF Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        h1 {
+            color: #FF5733;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        label {
+            color: #FF5733;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #FF5733;
+            border-radius: 5px;
+            color: #FFFFFF;
+            background-color: #242424;
+            outline: none;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #FF5733;
+            border-radius: 5px;
+            color: #FFFFFF;
+            background-color: #242424;
+            outline: none;
+        }
+
+        button {
+            background-color: #FF5733;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload PDF</h1>
+        <form method="post" action="/upload_pdf" enctype="multipart/form-data">
+            <label for="pdf">Select PDF to Upload:</label>
+            <input type="file" id="pdf" name="pdf" accept=".pdf" required>
+            <br>
+            <!-- Add a text box to ask for a prompt -->
+            <label for="prompt">Enter your question:</label>
+            <input type="text" id="prompt" name="prompt" required>
+            <br>
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

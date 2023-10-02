@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Physics Document Reader - Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 50px 0;
+        }
+
+        h1 {
+            color: #FF5733;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #FF5733;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            color: #FFFFFF;
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+        <h2>Asked Question:</h2>
+        <p>{{ asked_question }}</p>
+        <h2>Answer:</h2>
+        <p>{{ answer }}</p>
+        <h2>Chapter Match:</h2>
+        <p>{{ chapter_match }}</p>
+        <h2>Relevant Statements:</h2>
+        <ul>
+            {% for statement in statements %}
+                <li>{{ statement }}</li>
+            {% endfor %}
+        </ul>
+        <h2>How we concluded:</h2>
+        <p>{{ conclusion }}</p>
+    </div>
+</body>
+</html>
